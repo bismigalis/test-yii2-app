@@ -24,13 +24,13 @@ use app\models\Order;
 </nav>
 <div class="container-fluid">
   <ul class="nav nav-tabs p-b">
-    <?php foreach ([['title' => 'All orders', 'value' => NULL],
+    <?php foreach ([['title' => 'All orders', 'value' => null],
                     ['title' => 'Pending', 'value' => Order::STATUS_PENDING],
                     ['title' => 'In progress', 'value' => Order::STATUS_INPROGRESS],
                     ['title' => 'Completed', 'value' => Order::STATUS_COMPLETED],
                     ['title' => 'Canceled', 'value' => Order::STATUS_CANCELED],
                     ['title' => 'Error', 'value' => Order::STATUS_ERROR]] as $item): ?>
-    <li class="<?= (is_null(Yii::$app->request->get('status')) ? NULL : intval(Yii::$app->request->get('status'))) === $item['value'] ? "active" : "" ?>">
+    <li class="<?= (is_null(Yii::$app->request->get('status')) ? null : intval(Yii::$app->request->get('status'))) === $item['value'] ? "active" : "" ?>">
       <a href="<?= Url::to(['order/index',
                             'status' => $item['value'],
                             'search' => Yii::$app->request->get('search'),
@@ -93,10 +93,10 @@ use app\models\Order;
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <?php foreach ([['title' => 'All', 'value' => NULL],
+          <?php foreach ([['title' => 'All', 'value' => null],
                           ['title' => 'Manual', 'value' => Order::MODE_MANUAL],
                           ['title' => 'Auto', 'value' => Order::MODE_AUTO]] as $item): ?>
-                  <li class="<?= (is_null(Yii::$app->request->get('mode')) ? NULL : intval(Yii::$app->request->get('mode'))) === $item['value'] ? "active" : "" ?>">
+                  <li class="<?= (is_null(Yii::$app->request->get('mode')) ? null : intval(Yii::$app->request->get('mode'))) === $item['value'] ? "active" : "" ?>">
                     <a href="<?= Url::to(['order/index',
                       'mode' => $item['value'],
                       'service_id' => Yii::$app->request->get('service_id'),

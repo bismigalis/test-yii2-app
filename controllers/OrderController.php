@@ -22,7 +22,7 @@ class OrderController extends Controller
      *
      * @return string
      */
-    public function actionIndex($status = NULL, $mode = NULL, $service_id = '', $search = NULL, $search_type = NULL)
+    public function actionIndex($status = null, $mode = null, $service_id = '', $search = null, $search_type = null)
     {
         $search_fields = [
             '1' => 'id',
@@ -63,7 +63,7 @@ class OrderController extends Controller
             ->orderBy('id')
             ->all();
         $all_services = new \stdClass();
-        $all_services->id = NULL;
+        $all_services->id = null;
         $all_services->name = 'All';
         array_unshift($services, $all_services);
         $services_by_id = [];
@@ -83,11 +83,9 @@ class OrderController extends Controller
             $orders_per_service[$item['service_id']] = $item['amount'];
             $all_amount = $all_amount + $item['amount'];
         }
-        $orders_per_service[NULL] = $all_amount;
+        $orders_per_service[null] = $all_amount;
 
-        //VarDumper::dump($service_id); exit;
-        
-        return $this->render('index', [
+         return $this->render('index', [
             'services' => $services_by_id,
             'orders_per_service' => $orders_per_service,
             'orders' => $orders,
